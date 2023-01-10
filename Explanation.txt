@@ -1,0 +1,28 @@
+
+Prequisite Knowledge
+---------------------
+->After Bios finishes tests on devices it has to locate the drive where the bootlaoder is found so it hands
+  control to it load the operating system.
+
+->So Bios loops through storage devices(Disk and not the main memory) in a given order checking whether the last
+  2 bytes of the first 512bytes is equivalent to the magic number 0xaa55(0x simply implies it is in hexadecimal).
+
+->When this is located the Bios then hands control to the bootloader. It is important to note that the all these
+  occurs in the 16bit also called the real mode(Where we address real memory loctaions i.e memory loactions that
+  phyiscally exists).
+
+->The bootloader is to contain a standard loaction (0x1000 on main memory) to which kernel will be loaded and the
+  kernel image. This image simply calls the kernel to specified loction on bootLoader. Kernel is stored as image
+  bcs it is larger than the surposed 512bytes specified for a bootloader in the 86x architecture.
+
+->Before loading the kernel some neccessary preparations has to be made i.e define and load the GDT(Global Descriptor Table)
+  then switch to protected mode(32bits mode).
+
+->The GDT defines the characteristics of memory segements to enable protected mode run smoothly( U can this of it
+  as a rule setter to memory segments). 32bit is a virtual memory addressing mode that ensures essential data (like
+  the bootloader itself) in certain real memory locations are not over written by the OS program.
+
+-> Also note that a hard disk drive is divided into cylinders containing sectors with navigation done using heads.
+
+-> Code related to the GDT is standard for 86x architecture and somewhat complex so I just copied every thing related
+   to it's implementation.
