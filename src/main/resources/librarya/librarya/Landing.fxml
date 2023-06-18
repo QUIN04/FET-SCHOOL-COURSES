@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane prefHeight="200" prefWidth="200">
+      <children>
+         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, rgb(206, 159, 252) , rgb(115, 103, 240)); -fx-min-height: 600px; -fx-min-width: 800px;">
+            <children>
+               <Button id="Student" layoutX="164.0" layoutY="444.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="171.0" style="-fx-background-color: #ffffff; -fx-font-family: 'Poppins'; -fx-border-radius: 18px; -fx-background-radius: 18px;" text="STUDENT" textFill="#7367f0">
+                  <font>
+                     <Font name="System Bold" size="13.0" />
+                  </font>
+                  <graphic>
+                     <FontAwesomeIconView glyphName="GRADUATION_CAP" size="27">
+                        <selectionFill>
+                           <LinearGradient endX="1.0" endY="1.0">
+                              <stops>
+                                 <Stop>
+                                    <color>
+                                       <Color />
+                                    </color>
+                                 </Stop>
+                                 <Stop offset="1.0">
+                                    <color>
+                                       <Color red="0.45098039507865906" green="0.40392157435417175" blue="0.9411764740943909" />
+                                    </color>
+                                 </Stop>
+                              </stops>
+                           </LinearGradient>
+                        </selectionFill>
+                        <fill>
+                           <LinearGradient endX="0.004728132387706863" endY="0.9456264775413712" startX="0.75177304964539">
+                              <stops>
+                                 <Stop>
+                                    <color>
+                                       <Color red="0.8078431487083435" green="0.6235294342041016" blue="0.9882352948188782" />
+                                    </color>
+                                 </Stop>
+                                 <Stop offset="1.0">
+                                    <color>
+                                       <Color red="0.45098039507865906" green="0.40392157435417175" blue="0.9411764740943909" />
+                                    </color>
+                                 </Stop>
+                              </stops>
+                           </LinearGradient>
+                        </fill>
+                     </FontAwesomeIconView>
+                  </graphic>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Button>
+               <Button id="Admin" layoutX="477.0" layoutY="445.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="171.0" style="-fx-background-color: linear-gradient(to left, rgb(206, 159, 252) , rgb(115, 103, 240)); -fx-font-family: 'Poppins', sans-serif; -fx-background-radius: 18px; -fx-border-radius: 18px; -fx-border-color: #ffffff; -fx-border-width: 2px;" text="ADMINISTRATOR" textFill="WHITE">
+                  <font>
+                     <Font name="octicons" size="14.0" />
+                  </font>
+                  <graphic>
+                     <FontAwesomeIconView fill="WHITE" glyphName="COGS" size="27" />
+                  </graphic>
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </Button>
+               <AnchorPane layoutX="247.0" layoutY="24.0">
+                  <children>
+                     <FontAwesomeIconView glyphName="BOOK" layoutY="82.0" size="100" text="" />
+                     <Text fontSmoothingType="LCD" layoutX="99.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LIBRARYA" wrappingWidth="191.13671875">
+                        <font>
+                           <Font name="Nirmala UI Bold" size="39.0" />
+                        </font>
+                     </Text>
+                     <Separator layoutX="95.0" layoutY="53.0" prefHeight="27.0" prefWidth="200.0" />
+                     <Separator layoutX="95.0" layoutY="67.0" prefHeight="27.0" prefWidth="200.0" />
+                  </children>
+               </AnchorPane>
+               <Group layoutX="406.0" layoutY="170.0" />
+               <AnchorPane layoutX="319.0" layoutY="134.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-radius: 50%; -fx-background-radius: 50%; -fx-background-color: #ffffff;">
+                  <children>
+                     <FontAwesomeIconView glyphName="USERS" layoutX="25.0" layoutY="150.0" size="140">
+                        <fill>
+                           <LinearGradient endX="0.004728132387706863" endY="0.9456264775413712" startX="0.75177304964539">
+                              <stops>
+                                 <Stop>
+                                    <color>
+                                       <Color red="0.8078431487083435" green="0.6235294342041016" blue="0.9882352948188782" />
+                                    </color>
+                                 </Stop>
+                                 <Stop offset="1.0">
+                                    <color>
+                                       <Color red="0.45098039507865906" green="0.40392157435417175" blue="0.9411764740943909" />
+                                    </color>
+                                 </Stop>
+                              </stops>
+                           </LinearGradient>
+                        </fill>
+                     </FontAwesomeIconView>
+                  </children>
+               </AnchorPane>
+               <Text fill="WHITE" layoutX="287.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME @USER">
+                  <font>
+                     <Font name="System Bold" size="32.0" />
+                  </font>
+               </Text>
+            </children>
+         </AnchorPane>
+      </children></AnchorPane>
+</Scene>
