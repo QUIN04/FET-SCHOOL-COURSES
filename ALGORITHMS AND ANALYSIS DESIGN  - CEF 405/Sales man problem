@@ -1,0 +1,18 @@
+def tsp(graph, start):
+  visited = set()
+  dp = {}
+  def dp_helper(current_city, visited):
+    if len(visited) == len(graph) - 1:
+      return graph[current_city][start]
+    if (current_city, visited) in dp:
+      return dp[(current_city, visited)]
+    min_cost = float('inf')
+    for next_city in graph[current_city]:
+      if next_city not in visited:
+        visited.add(next_city)
+        cost = graph[current_city][next_city] + dp_helper(next_city, visited.copy())
+        visited.remove(next_city)
+        min_cost = min(min_cost, cost)
+    dp[(current_city, visited)] = min_cost
+    return min_cost
+  return dp_helper(start, visited)
