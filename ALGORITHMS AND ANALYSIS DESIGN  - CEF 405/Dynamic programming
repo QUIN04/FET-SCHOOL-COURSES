@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+typedef struct {
+  int city;
+  int distance;
+} Pair;
+
+Pair* TSP(int** graph, int n, int start) {
+  // Initialize visited set and dynamic programming table
+  int visited[n];
+  for (int i = 0; i < n; i++) visited[i] = 0;
+  Pair* dp[n][1 << n]; // 2D array of pairs (city, cost)
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < (1 << n); j++) {
+      dp[i][j] = NULL;
+    }
+  }
+
+  // Helper function for dynamic programming
+  Pair* dp_helper(int current_city, int visited_set) {
+    if (__builtin_popcount(visited_set) == n - 1) {
+      Pair* p = malloc(sizeof(Pair));
+      p->city = start;
+      p->distance = graph[current_city][start];
+      return p;
+    }
+
+    if (dp[current_city][visited_set]) return dp[current_city][visited_set];
+
+    Pair* min_path = NULL;
+    int min_cost = INT_MAX;
+    for (int next_city = 0; next_city < n; next_city++) {
+      if (!(visited_set & (1 << next_city))) { // Check if city is not visited
+        visited_set |= (1 << next_city); // Mark city as visited
+        Pair* path = dp_helper(next_city, visited_set);
+        if (path && path->distance + graph[current_city][next_city] < min_cost) {
+          min_cost = path->distance + graph[current_city][next_city];
+          min_path = path;
+        }
+        visited_set &= ~(1 << next_city); // Unmark city as visited
+        free(path);
+      }
+    }
+
+    if (min_path) {
+      min_path->distance += graph[current_city][start];
+    } else {
+      min_path = malloc(sizeof(Pair));
+      min_path->city = current_city;
+      min_path->distance = INT_MAX;
+    }
+    dp[current_city][visited_set] = min_path;
+    return min_path;
+  }
+
+  Pair* path = dp_helper(start, 0); // Call helper function with starting city
+  return path;
+}
+
+int main() {
+  // Your code to initialize `graph` and `n`
+  Pair* path = TSP(graph, n, start);
+  // Use `path` to access the optimal path information
+
+  // Free allocated memory
+  free(path);
+  return 0;
+}
