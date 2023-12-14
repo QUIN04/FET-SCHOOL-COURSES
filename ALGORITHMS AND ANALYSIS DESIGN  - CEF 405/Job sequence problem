@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Job {
+  int id;
+  int deadline;
+  int profit;
+} Job;
+
+int max_profit(Job jobs[], int n) {
+  // Sort jobs by deadline in non-decreasing order
+  qsort(jobs, n, sizeof(Job), compare_deadlines);
+
+  // Initialize profit and slot table
+  int profit_table[n + 1], slot_table[n + 1];
+  for (int i = 0; i <= n; i++) {
+    profit_table[i] = 0;
+    slot_table[i] = -1;
+  }
+
+  // Iterate through jobs in reverse order
+  for (int i = n - 1; i >= 0; i--) {
+    // Find the latest available slot for this job (respecting deadline)
+    int latest_slot = jobs[i].deadline - 1;
+
+    // Calculate profit including current job and previous job at available slot
+    int current_profit = jobs[i].profit + profit_table[latest_slot];
+
+    // Choose the maximum profit (including or excluding current job)
+    if (current_profit > profit_table[i + 1]) {
+      profit_table[i] = current_profit;
+      slot_table[i] = latest_slot;
+    } else {
+      profit_table[i] = profit_table[i + 1];
+    }
+  }
+
+  // Return the maximum achievable profit
+  return profit_table[0];
+}
+
+int compare_deadlines(const void* a, const void* b) {
+  const Job* job1 = (const Job*)a;
+  const Job* job2 = (const Job*)b;
+  return job1->deadline - job2->deadline;
+}
+
+int main() {
+  // Define number of jobs and initialize array
+  int n = ...;
+  Job jobs[n];
+
+  // Set job properties (id, deadline, profit) for each job
+
+  // Calculate maximum profit
+  int max_profit_value = max_profit(jobs, n);
+
+  // Print the maximum profit and reconstruct the optimal sequence (optional)
+
+  return 0;
+}
