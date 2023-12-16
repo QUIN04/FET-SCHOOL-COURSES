@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+
+#define NUM_THREADS 4
+#define TASK_SIZE 1000
+
+typedef struct {
+    int start;
+    int end;
+} TaskInfo;
+
+void* performTask(void *arg) {
+    TaskInfo *taskInfo = (TaskInfo *)arg;
+
+    int i;
+    for (i = taskInfo->start; i < taskInfo->end; ++i) {
+        printf("Task performed by thread for index %d\n", i);
+    }
+
+    pthread_exit(NULL);
+}
+
+int main() {
+    pthread_t threads[NUM_THREADS];
+    TaskInfo tasks[NUM_THREADS];
+    int taskSizePerThread = TASK_SIZE / NUM_THREADS;
+    int remainder = TASK_SIZE % NUM_THREADS;
+    int i;
+
+    for (i = 0; i < NUM_THREADS; ++i) {
+        tasks[i].start = i * taskSizePerThread;
+        tasks[i].end = tasks[i].start + taskSizePerThread;
+
+        if (i == NUM_THREADS - 1) {
+            tasks[i].end += remainder;
+        }
+
+        if (pthread_create(&threads[i], NULL, performTask, &tasks[i]) != 0) {
+            fprintf(stderr, "Error creating thread\n");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    for (i = 0; i < NUM_THREADS; ++i) {
+        if (pthread_join(threads[i], NULL) != 0) {
+            fprintf(stderr, "Error joining thread\n");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    return 0;
+}
