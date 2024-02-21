@@ -1,0 +1,64 @@
+       {/* Add logic for email and password inputs here */}
+
+   {/* ... same email and password input fields */}
+
+Website conversion from HTML to Next.js: Improved website performance, speed, and developer experience by leveraging the features and benefits of Next.js (faster page load times, code splitting, efficient routing, etc.).
+
+Mobile app translation: Enabled the app to support both English and French languages using the i18next library, enhancing user experience for multilingual users
+
+Dashboard development: Streamlined development process and ensured code reusability and maintainability by creating reusable components for various UI elements like input fields, tables, and buttons. Additionally, incorporated validation in input forms to improve user experience and data accuracy.
+
+Converting Website from HTML to Next.js:
+
+Method: Utilizing Next.js framework for server-side rendering (SSR) and code splitting to improve website performance and optimize the codebase.
+Benefit: Faster page load times, improved developer experience with features like hot module replacement and automatic code reloading
+
+Adding translation functionality to the website:
+
+Method: Using i18next library for translation functionality, supporting multiple languages, key-value mapping, and language fallbacks.
+Benefit: Improved user experience for multilingual users, wider reach for the website.
+
+Consuming APIs to add bank accounts and mobile money numbers:
+
+Method: POST request with Axios HTTP client, creating select component for user interface.
+Benefit: Allowing users to add their financial information for transactions.
+
+Mobile app translation:
+
+Method: Implementing translation with i18next library, creating JSON files for different languages, using supervisor's guidance.
+Benefit: Supporting both English and French languages in the app.
+
+Dashboard development:
+
+Method: Building reusable components for input, tables, buttons, tabs, etc., using Next.js and Tailwind CSS.
+Benefit: Improved code reusability, maintainability, and consistency of the UI.
+
+Method: Adding required flag and validation logic to input components, ensuring data completeness and accuracy.
+Benefit: Enhanced user experience with clear feedback and error messages.
+
+Method: Guiding a fellow intern by sharing progress, assigning tasks, explaining concepts, and providing feedback.
+Benefit: Strengthening technical skills, fostering a culture of learning, and promoting knowledge sharing.
+
+Working with Git and version control:
+
+Method: Utilizing GitHub for code collaboration, code history, branching, code reviews, and quality assurance.
+Benefit: Improved team efficiency, code quality, and project management.
+
+Solutions:
+
+Analyzed existing website content and identified opportunities for modularity and component-based development.
+Converted relevant website sections into reusable Next.js components for improved performance and maintainability.
+Leveraged Next.js features for enhanced SEO optimization.
+
+
+Outcomes:
+
+Achieved a 737% increase in website loading speed compared to the original HTML version.
+Improved cross-browser compatibility by utilizing Next.js rendering and compatibility features.
+Established a foundation for future website translation using the i18next library.
+
+
+[1] 	Definition of internship obtained from obtained from University of Maryland, Baltimore County  website
+[2]	Implementing the translation, got guidance from the i18next documentation website
+
+I participated in the Silicon Mountain Conference, networking with tech professionals and attending events like a pitching contest and coding battle. Beyond that, I built personal projects using NestJS, React Native, and even a full-stack app combining both, deepening my understanding of these frameworks. While my laptop limitations prevented finishing the full-stack project, it showcased my initiative and learning drive.
