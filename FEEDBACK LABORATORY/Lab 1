@@ -1,0 +1,21 @@
+% Define system parameters
+L = 1; % Inductance in Henry
+C = 1; % Capacitance in Farad
+R = 2; % Resistance in Ohm
+
+% Create transfer function (assuming no feedback)
+num = 1;
+den = [L*C R*C + 1];
+sys = tf(num, den);
+
+% Simulate step response
+t = 0:0.01:10; % Time vector with 0.01 seconds sampling time
+[y, t] = step(sys, t);
+
+% Plot the step response
+figure;
+plot(t, y);
+xlabel('Time (s)');
+ylabel('Output Voltage (V)');
+title('Step Response of RLC Network');
+grid on;
