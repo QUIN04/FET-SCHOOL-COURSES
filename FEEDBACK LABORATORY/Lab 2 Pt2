@@ -1,0 +1,16 @@
+(ii) Time Response
+
+Matlab
+% Define input step function
+t = 0:0.01:5;  % Adjust time vector for desired resolution
+r = ones(size(t));
+
+% Get system output
+[y, t] = step(sys, t);
+
+% Plot time response
+plot(t, y);
+grid on;
+xlabel('Time (s)');
+ylabel('Output c(t)');
+title('Time Response for Unit Step Input');
