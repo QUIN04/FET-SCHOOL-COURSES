@@ -1,0 +1,17 @@
+(i) Pole-Zero Map
+
+Matlab
+% Define system parameters
+wn = 10;
+zeta = 0.4;
+
+% Create transfer function
+num = 2;
+den = [1 2*zeta*wn wn^2+2];
+sys = tf(num, den);
+
+% Plot pole-zero map
+pzmap(sys);
+grid on;
+title('Pole-Zero Map');
+
